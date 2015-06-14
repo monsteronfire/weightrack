@@ -10,4 +10,17 @@
 
 <template name="content">
 	<h1>Track Your Weight with Weightrack!</h1>
+	<div class="row">
+		{{> login}}
+	</div>
+</template>
+
+<template name="login">
+	{{#if currentUser}}}
+		{{currentUser.services.facebook.name}} -
+		{{currentUser.services.facebook.gender}}
+		<button id="logout">Logout</button>
+	{{else}}
+		<button id="facebook-login" class="btn btn-default">Login with Facebook</button>
+	{{/if}}
 </template>
