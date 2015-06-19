@@ -9,18 +9,22 @@
 </body>
 
 <template name="content">
-	<h1>Track Your Weight with Weightrack!</h1>
-	<div class="row">
+	<div class="row text-center">
+		<h1>Weightrack: Track Your Weight</h1>
 		{{> login}}
 	</div>
 </template>
 
 <template name="login">
-	{{#if currentUser}}}
-		{{currentUser.services.facebook.name}} -
-		{{currentUser.services.facebook.gender}}
-		<button id="logout">Logout</button>
+	{{#if currentUser}}
+		{{currentUser.services.google.name}} -
+		{{currentUser.services.google.gender}}
+		<div class="col-md-12 text-center">
+			<button id="logout" class="btn btn-primary">Logout</button>
+		</div>
 	{{else}}
-		<button id="facebook-login" class="btn btn-default">Login with Facebook</button>
+		<div class="col-md-12 text-center">
+			<button id="google-login" class="btn btn-primary">Login with Google</button>
+		</div>
 	{{/if}}
 </template>

@@ -1,9 +1,9 @@
 if (Meteor.isClient) {
     Template.login.events({
-        'click #facebook-login': function(event){
-            Meteor.loginWithFacebook({}, function(err){
+        'click #google-login': function(event){
+            Meteor.loginWithGoogle({}, function(err){
                 if(err){
-                    throw new Meteor.Error('Facebook login failed');
+                    throw new Meteor.Error('Google login failed');
                 }
             });
         },
