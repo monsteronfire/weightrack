@@ -10,21 +10,49 @@
 
 <template name="content">
 	<div class="row text-center">
-		<h1>Weightrack: Track Your Weight</h1>
+		<h1>Weightrack</h1>
+		<h2>Track Your Weight</h2>
+		{{#if currentUser}}
+			{{> weightlist}}
+		{{/if}}
+
 		{{> login}}
 	</div>
 </template>
 
 <template name="login">
 	{{#if currentUser}}
-		{{currentUser.services.google.name}} -
-		{{currentUser.services.google.gender}}
+		<p>Logged in as {{currentUser.services.google.name}}</p>
+		<!-- {{currentUser.services.google.gender}} -->
 		<div class="col-md-12 text-center">
 			<button id="logout" class="btn btn-primary">Logout</button>
 		</div>
 	{{else}}
+		<div class="login-box">
+			<button id="google-login" class="btn btn-punch"><i class="fa fa-google"></i> Login with Google</button>
+		</div>
 		<div class="col-md-12 text-center">
-			<button id="google-login" class="btn btn-primary">Login with Google</button>
+			
 		</div>
 	{{/if}}
+</template>
+
+<template name="weightlist">
+	<div class="col-md-12 text-center">
+		<form class="new-weight">
+			<label for="text">
+				Key in your weight for this Sprint
+			</label>
+			<input type="text" name="text" placeholder="in KG" />
+		</form>
+		<ul>
+			{{#each weights}}
+				{{> weight}}
+			{{/each}}
+		</ul>
+	</div>
+</template>
+
+<template name="weight">
+  <li>{{text}}</li>
 </template>

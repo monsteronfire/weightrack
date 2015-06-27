@@ -1,0 +1,30 @@
+$roman     : #DD6064;
+$punch     : #DF4A32;
+$tradewind : #6CB5AC;
+
+$white     : #FFFFFF;
+
+body {
+	background-color: $tradewind;
+}
+
+h2 {
+	font-style: italic;
+}
+
+.login-box {
+	max-width: 350px;
+	height: 350px;
+	margin: 0 auto;
+	background-color: $tradewind;
+}
+
+.btn-punch {
+	background-color: $punch;
+	color: $white;
+
+	&:hover {
+		background-color: darken($punch, 5%);
+		color: $white;
+	}
+}

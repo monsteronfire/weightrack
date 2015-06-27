@@ -1,3 +1,5 @@
+Weights = new Mongo.Collection("weights");
+
 if (Meteor.isClient) {
     Template.login.events({
         'click #google-login': function(event){
@@ -16,10 +18,25 @@ if (Meteor.isClient) {
             });
         }
     });
-}
 
-if (Meteor.isServer) {
-    Meteor.startup(function () {
-    // code to run on server at startup
+    Template.weightlist.helpers({
+        weights: function () {
+          return Weights.find({});
+        }
+    });
+
+    Template.weightlist.events({
+        'submit .new-weight' : function(event){
+            var text = event.target.text.value;
+
+            Weights.insert({
+                text: text,
+                createdAt: new Date()
+            });
+
+            event.target.text.value = '';
+            return false;
+        }
     });
 }
+

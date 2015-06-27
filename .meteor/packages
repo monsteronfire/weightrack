@@ -11,3 +11,5 @@ twbs:bootstrap
 accounts-ui
 service-configuration
 accounts-google
+fourseven:scss
+fortawesome:fontawesome
